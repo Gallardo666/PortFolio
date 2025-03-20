@@ -1,7 +1,23 @@
-// Toggle the navbar to expand or collapse
-const toggleBtn = document.getElementById('toggle-btn');
-const navbar = document.querySelector('.navbar');
+const body = document.querySelector('body'),
+    sidebar = body.querySelector('.sidebar'), // Ensure this targets the correct element
+    toggle = body.querySelector(".toggle"),
+    searchBtn = body.querySelector(".search-box"),
+    modeSwitch = body.querySelector(".toggle-switch"),
+    modeText = body.querySelector(".mode-text");
 
-    toggleBtn.addEventListener('click', () => {
-    navbar.classList.toggle('expanded');
+toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+});
+
+searchBtn.addEventListener("click", () => {
+    sidebar.classList.remove("close");
+});
+
+modeSwitch.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    if (body.classList.contains("dark")) {
+        modeText.innerText = "Light mode";
+    } else {
+        modeText.innerText = "Dark mode";
+    }
 });
