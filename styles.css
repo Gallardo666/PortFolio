@@ -1,16 +1,23 @@
 :root {
     --color-primary: #730080;
     --color-secundary: #4e1953;
-    --color-primary-light: #713177;
+    --color-primary-light: #3A3B3C;
     --color-background-nav: #37113a;
-    --color-body: #ffffff;
-    --color-sidebar: #efffff;
+    --color-body: #18191A;
+    --color-sidebar: #242526;
     --color-toggle: #870195;
-    --color-text: #222222;
+    --color-text: #cccccc;
     --color-link: #a9a9a9;
     --trans-03: all 0.2s ease;
     --trans-04: all 0.3s ease;
     --trans-05: all 0.4s ease;
+}
+
+body.light {
+    --color-body: #ffffff;
+    --color-sidebar: #efffff;
+    --color-primary-light: #713177;
+    --color-text: #222222;
 }
 
 * {
@@ -30,13 +37,6 @@ body {
 ::selection {
     background-color: var(--color-primary);
     color: #efffff;
-}
-
-body.dark {
-    --color-body: #18191A;
-    --color-sidebar: #242526;
-    --color-primary-light: #3A3B3C;
-    --color-text: #cccccc;
 }
 
 .sidebar {
@@ -127,7 +127,7 @@ body.dark {
     transition: var(--trans-05);
 }
 
-body.dark .sidebar .navheader .toggle {
+body.light .sidebar .navheader .toggle {
     color: var(--color-text);
 }
 
@@ -211,19 +211,28 @@ body.dark .sidebar .navheader .toggle {
 }
 
 .sidebar .bottom-content {
-    position: absolute;
-    bottom: 0;
+    margin-top: auto;
     width: 100%;
-    margin-left: 0.5rem;
     padding: 20px 0;
     display: flex;
     align-items: center;
+    justify-content: center; 
     transition: var(--trans-05);
+    overflow: hidden;
 }
 
 .sidebar .menu-bar {
     flex-grow: 1;
     overflow-y: auto;
+    padding-bottom: 60px; /* Espacio para el bottom-content */
+}
+
+.sidebar .bottom-content .icon {
+    font-size: 24px; /* Ajusta el tamaño del icono si es necesario */
+    margin-left: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu::-webkit-scrollbar {
@@ -247,14 +256,16 @@ body.dark .sidebar .navheader .toggle {
     opacity: 0;
 }
 
-body.dark .mode .sun-moon i.sun {
+body.light .mode .sun-moon i.sun {
     opacity: 1;
 }
 
-body.dark .mode .sun-moon i.moon {
+body.light .mode .sun-moon i.moon {
     opacity: 0;
 }
-
+.sidebar .bottom-content .mode-text {
+    margin-left: 35px; /* Añade margen a la derecha del texto */
+}
 .menu-bar .bottom-content .toggle-switch {
     position: relative;
     height: 100%;
@@ -264,7 +275,8 @@ body.dark .mode .sun-moon i.moon {
     justify-content: center;
     border-radius: 6px;
     cursor: pointer;
-    margin: 0 15px;
+    margin: 0 5px;
+    margin-left: 50px;
 }
 
 .toggle-switch .switch {
@@ -289,7 +301,7 @@ body.dark .mode .sun-moon i.moon {
     transition: var(--trans-04);
 }
 
-body.dark .switch::before {
+body.light .switch::before {
     left: 20px;
 }
 
@@ -315,6 +327,6 @@ body.dark .switch::before {
     width: calc(100% - 78px);
 }
 
-body.dark .home .text {
+body.light .home .text {
     color: var(--color-text);
 }
