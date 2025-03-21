@@ -1,4 +1,5 @@
 :root {
+    /* Definir variables CSS para colores y transiciones */
     --color-primary: #730080;
     --color-secundary: #4e1953;
     --color-primary-light: #3A3B3C;
@@ -14,6 +15,7 @@
 }
 
 body.light {
+    /* Sobrescribir variables de color para el modo claro */
     --color-body: #ffffff;
     --color-sidebar: #efffff;
     --color-primary-light: #713177;
@@ -21,25 +23,101 @@ body.light {
 }
 
 * {
+    /* Reiniciar margen, padding y box-sizing para todos los elementos */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-body {
-    min-height: 100vh;
+html, body {
+    height: 100%;
     background-color: var(--color-body);
     color: var(--color-text);
-    transition: var(--trans-05);
+    transition: var(--trans-05); /* Transición suave para cambios de color */
 }
 
 ::selection {
+    /* Estilo para la selección de texto */
     background-color: var(--color-primary);
     color: #efffff;
 }
 
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-left: 250px; /* Ajuste para la barra lateral */
+    transition: var(--trans-05);
+}
+
+.sidebar.close ~ .main-container {
+    margin-left: 88px; /* Ajuste cuando la barra lateral está cerrada */
+}
+
+.content {
+    flex: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
+    padding: 20px;
+}
+
+footer {
+    background-color: var(--color-sidebar);
+    color: var(--color-text);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-about, .footer-social, .footer-contact {
+    flex: 1;
+    margin: 20px;
+}
+
+.footer-about p, .footer-contact p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-social .social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-social .social-links li {
+    margin: 0 10px;
+}
+
+.footer-social .social-links a {
+    color: var(--color-text);
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.footer-social .social-links a:hover {
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/*Nav Lateral*/
 .sidebar {
+    /* Barra lateral fija con altura completa */
     position: fixed;
     top: 0;
     left: 0;
@@ -47,18 +125,20 @@ body {
     width: 250px;
     padding: 10px 14px;
     background-color: var(--color-sidebar);
-    transition: var(--trans-05);
-    z-index: 100;
+    transition: var(--trans-05); /* Transición suave para cambios de ancho */
+    z-index: 100; /* Asegurar que la barra lateral esté sobre otros elementos */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .sidebar.close {
+    /* Ancho reducido para la barra lateral cerrada */
     width: 88px;
 }
 
 .sidebar li {
+    /* Estilo para elementos de lista en la barra lateral */
     height: 50px;
     list-style: none;
     display: flex;
@@ -68,13 +148,15 @@ body {
 
 .sidebar .icon,
 .sidebar .text {
+    /* Estilos comunes para iconos y texto en la barra lateral */
     min-width: 60px;
     border-radius: 6px;
     color: var(--color-text);
-    transition: var(--trans-03);
+    transition: var(--trans-03); /* Transición suave para cambios de color */
 }
 
 .sidebar .icon {
+    /* Centrar iconos dentro de su contenedor */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,9 +164,10 @@ body {
 }
 
 .sidebar .txt {
+    /* Estilo para texto en la barra lateral */
     font-size: 17px;
     font-weight: 500;
-    white-space: nowrap;
+    white-space: nowrap; /* Evitar que el texto se envuelva */
     opacity: 1;
 }
 
@@ -92,31 +175,37 @@ body {
 .sidebar.close .txt,
 .sidebar.close .mode-text,
 .sidebar.close .toggle-switch {
+    /* Ocultar elementos cuando la barra lateral está cerrada */
     opacity: 0;
-    pointer-events: none;
+    pointer-events: none; /* Desactivar interacciones */
 }
 
 .sidebar.close .sun-moon {
+    /* Asegurar que el icono sol-luna sea visible cuando la barra lateral está cerrada */
     opacity: 1;
     pointer-events: auto;
 }
 
 .sidebar .navheader {
+    /* Posicionamiento para el encabezado de la barra lateral */
     position: relative;
 }
 
 .sidebar .navheader .logo {
+    /* Diseño de flexbox para el logo */
     display: flex;
     flex-direction: column;
     transition: var(--trans-03);
 }
 
 .sidebar .navheader .toggle {
+    /* Botón de alternancia para abrir/cerrar la barra lateral */
     position: absolute;
     top: 20%;
     right: 0;
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 35px; /* Ancho por defecto */
+    border-radius: 5px;
     background-color: var(--color-primary);
     color: var(--color-sidebar);
     display: flex;
@@ -127,21 +216,26 @@ body {
     transition: var(--trans-05);
 }
 
-body.light .sidebar .navheader .toggle {
-    color: var(--color-text);
+.sidebar:not(.close) .navheader .toggle {
+    /* Ajustar ancho cuando la barra lateral está extendida */
+    width: 50px;
 }
 
 .sidebar.close .toggle {
+    /* Botón de alternancia de ancho completo cuando la barra lateral está cerrada */
     width: 100%;
     top: 20%;
 }
 
 .sidebar .menu {
+    /* Estilo para la sección de menú de la barra lateral */
     margin-top: 40px;
+    overflow-x: hidden; /* Prevenir desplazamiento horizontal */
 }
 
 .sidebar li.search-box,
 .sidebar li.mode {
+    /* Estilos comunes para la caja de búsqueda y el modo de alternancia */
     border-radius: 6px;
     background-color: var(--color-primary-light);
     cursor: pointer;
@@ -151,19 +245,16 @@ body.light .sidebar .navheader .toggle {
     justify-content: center;
     padding: 10px;
 }
+
 .sidebar li.mode {
-    border-radius: 6px;
-    background-color: var(--color-primary-light);
-    cursor: pointer;
-    transition: var(--trans-05);
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Ensure space between icon and text */
+    /* Estilos específicos para el modo de alternancia */
+    justify-content: space-between; /* Espacio entre icono y texto */
     padding: 20px;
-    overflow: hidden; /* Prevent overflow */
+    overflow: hidden; /* Prevenir desbordamiento */
 }
 
 .sidebar li.mode .sun-moon {
+    /* Estilo para el icono sol-luna */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -171,14 +262,16 @@ body.light .sidebar .navheader .toggle {
 }
 
 .sidebar li.mode .mode-text {
+    /* Estilo para el texto del modo */
     color: var(--color-text);
     font-size: 17px;
     font-weight: 500;
     transition: var(--trans-05);
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap; /* Evitar que el texto se envuelva */
 }
 
 .sidebar li.search-box input {
+    /* Estilo para el input de búsqueda */
     height: 100%;
     width: 100%;
     outline: none;
@@ -191,6 +284,7 @@ body.light .sidebar .navheader .toggle {
 }
 
 .sidebar li a {
+    /* Estilo para enlaces en la barra lateral */
     height: 100%;
     background-color: transparent;
     display: flex;
@@ -202,33 +296,38 @@ body.light .sidebar .navheader .toggle {
 }
 
 .sidebar li a:hover {
+    /* Efecto hover para enlaces */
     background-color: var(--color-primary);
 }
 
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text {
+    /* Efecto hover para iconos y texto */
     color: var(--color-text);
 }
 
 .sidebar .bottom-content {
+    /* Estilo para el contenido inferior de la barra lateral */
     margin-top: auto;
     width: 100%;
     padding: 20px 0;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     transition: var(--trans-05);
     overflow: hidden;
 }
 
 .sidebar .menu-bar {
+    /* Estilo para la barra de menú */
     flex-grow: 1;
-    overflow-y: auto;
-    padding-bottom: 60px; /* Espacio para el bottom-content */
+    overflow-y: auto; /* Habilitar desplazamiento vertical */
+    padding-bottom: 60px; /* Espacio para el contenido inferior */
 }
 
 .sidebar .bottom-content .icon {
-    font-size: 24px; /* Ajusta el tamaño del icono si es necesario */
+    /* Estilo para iconos en el contenido inferior */
+    font-size: 24px;
     margin-left: 1.2rem;
     display: flex;
     align-items: center;
@@ -236,10 +335,12 @@ body.light .sidebar .navheader .toggle {
 }
 
 .menu::-webkit-scrollbar {
+    /* Ocultar barra de desplazamiento para el menú */
     display: none;
 }
 
 .menu-bar .mode .sun-moon {
+    /* Estilo para el icono sol-luna en el modo de alternancia */
     height: 50px;
     width: 60px;
     display: flex;
@@ -249,24 +350,32 @@ body.light .sidebar .navheader .toggle {
 }
 
 .mode .sun-moon i {
+    /* Posicionar iconos absolutamente dentro de sol-luna */
     position: absolute;
 }
 
 .mode .sun-moon i.sun {
+    /* Ocultar icono de sol por defecto */
     opacity: 0;
 }
 
 body.light .mode .sun-moon i.sun {
+    /* Mostrar icono de sol en modo claro */
     opacity: 1;
 }
 
 body.light .mode .sun-moon i.moon {
+    /* Ocultar icono de luna en modo claro */
     opacity: 0;
 }
+
 .sidebar .bottom-content .mode-text {
-    margin-left: 35px; /* Añade margen a la derecha del texto */
+    /* Margen para el texto del modo en el contenido inferior */
+    margin-left: 35px;
 }
+
 .menu-bar .bottom-content .toggle-switch {
+    /* Estilo para el interruptor de alternancia */
     position: relative;
     height: 100%;
     min-height: 60px;
@@ -280,6 +389,7 @@ body.light .mode .sun-moon i.moon {
 }
 
 .toggle-switch .switch {
+    /* Estilo para el interruptor */
     position: relative;
     height: 22px;
     width: 40px;
@@ -289,6 +399,7 @@ body.light .mode .sun-moon i.moon {
 }
 
 .switch::before {
+    /* Estilo para el botón del interruptor */
     content: "";
     position: absolute;
     height: 15px;
@@ -302,10 +413,12 @@ body.light .mode .sun-moon i.moon {
 }
 
 body.light .switch::before {
+    /* Posicionar el botón del interruptor en modo claro */
     left: 20px;
 }
 
 .home {
+    /* Estilo para el área principal de contenido */
     position: absolute;
     top: 0;
     left: 250px;
@@ -316,6 +429,7 @@ body.light .switch::before {
 }
 
 .home .text {
+    /* Estilo para el texto dentro de la sección home */
     font-size: 30px;
     font-weight: 500;
     color: var(--color-text);
@@ -323,10 +437,25 @@ body.light .switch::before {
 }
 
 .sidebar.close ~ .home {
+    /* Ajustar la sección home cuando la barra lateral está cerrada */
     left: 78px;
     width: calc(100% - 78px);
 }
 
 body.light .home .text {
+    /* Color del texto en modo claro */
     color: var(--color-text);
+}
+
+header, .content, footer {
+    /* Estilo para el encabezado, contenido y pie de página */
+    margin-left: 250px; /* Margen por defecto cuando la barra lateral está abierta */
+    transition: var(--trans-05); /* Transición suave para cambios de margen */
+}
+
+.sidebar.close ~ header,
+.sidebar.close ~ .content,
+.sidebar.close ~ footer {
+    /* Ajustar margen cuando la barra lateral está cerrada */
+    margin-left: 88px;
 }
