@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
           modeText = body.querySelector(".mode-text"),
           modeToggle = document.getElementById('mode-toggle');
 
+    let isNavOpen = false;
+
     // Verificar el tema guardado o aplicar el predeterminado (oscuro)
     if (!localStorage.getItem('theme') || localStorage.getItem('theme') === 'dark') {
         body.classList.add('dark');
@@ -18,12 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
         modeText.innerText = "Light Mode";
     }
 
-    let isNavOpen = false;
-
     // Función para abrir y cerrar el sidebar
     toggle.addEventListener("click", () => {
         isNavOpen = !isNavOpen;
         sidebar.classList.toggle("close");
+
+        // Ajustar margen de header, contenido y footer al cambiar el sidebar
+        if (isNavOpen) {
+            document.querySelector('header').style.marginLeft = '250px';
+            document.querySelector('.content').style.marginLeft = '250px';
+            document.querySelector('footer').style.marginLeft = '250px';
+        } else {
+            document.querySelector('header').style.marginLeft = '88px';
+            document.querySelector('.content').style.marginLeft = '88px';
+            document.querySelector('footer').style.marginLeft = '88px';
+        }
 
         // Si el nav está cerrado, ocultamos los resultados de búsqueda
         if (!isNavOpen) {
@@ -101,4 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value.toLowerCase();
         updateSearchResults(query);
     });
+
+    
 });
