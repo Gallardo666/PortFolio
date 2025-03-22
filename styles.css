@@ -3,6 +3,8 @@
     --color-primary: #730080;
     --color-secundary: #4e1953;
     --color-primary-light: #3A3B3C;
+    --color-background-hf:#37113a;
+    --color-texto-hf:#f7f7f7;
     --color-background-nav: #37113a;
     --color-body: #18191A;
     --color-sidebar: #242526;
@@ -35,6 +37,7 @@ html, body {
     background-color: var(--color-body);
     color: var(--color-text);
     transition: var(--trans-05); /* Transición suave para cambios de color */
+    scroll-behavior: smooth;
 }
 
 ::selection {
@@ -57,63 +60,11 @@ html, body {
 
 .content {
     flex: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
-    padding: 20px;
+    background-color: var(--color-body);
+    transition: var(--trans-05);
 }
 
-footer {
-    background-color: var(--color-sidebar);
-    color: var(--color-text);
-    padding: 40px 0;
-    text-align: center;
-}
 
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-about, .footer-social, .footer-contact {
-    flex: 1;
-    margin: 20px;
-}
-
-.footer-about p, .footer-contact p {
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.footer-social .social-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.footer-social .social-links li {
-    margin: 0 10px;
-}
-
-.footer-social .social-links a {
-    color: var(--color-text);
-    font-size: 24px;
-    transition: color 0.3s;
-}
-
-.footer-social .social-links a:hover {
-    color: var(--color-primary);
-}
-
-.footer-bottom {
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-.footer-bottom p {
-    margin: 0;
-}
 
 /*Nav Lateral*/
 .sidebar {
@@ -308,7 +259,7 @@ footer {
 
 .sidebar .bottom-content {
     /* Estilo para el contenido inferior de la barra lateral */
-    margin-top: auto;
+    margin-top: auto; /* Empuja el contenido hacia abajo */
     width: 100%;
     padding: 20px 0;
     display: flex;
@@ -385,11 +336,14 @@ body.light .mode .sun-moon i.moon {
     border-radius: 6px;
     cursor: pointer;
     margin: 0 5px;
-    margin-left: 50px;
+    margin-left: 60px;
 }
 
 .toggle-switch .switch {
     /* Estilo para el interruptor */
+    margin-left: 0.8rem;
+    margin-right: -0.2rem;
+    padding-right: 2rem;
     position: relative;
     height: 22px;
     width: 40px;
@@ -406,7 +360,7 @@ body.light .mode .sun-moon i.moon {
     width: 15px;
     border-radius: 50%;
     top: 50%;
-    left: 5px;
+    left: 2px;
     transform: translateY(-50%);
     background-color: var(--color-sidebar);
     transition: var(--trans-04);
@@ -414,7 +368,7 @@ body.light .mode .sun-moon i.moon {
 
 body.light .switch::before {
     /* Posicionar el botón del interruptor en modo claro */
-    left: 20px;
+    left: 13px;
 }
 
 .home {
@@ -458,4 +412,249 @@ header, .content, footer {
 .sidebar.close ~ footer {
     /* Ajustar margen cuando la barra lateral está cerrada */
     margin-left: 88px;
+}
+
+/* Ocultar los resultados por defecto */
+#searchResults.hidden {
+    display: none;
+}
+
+/* Estilos de búsqueda */
+#searchResults {
+    list-style-type: none;
+    margin-top: 1rem;
+    padding: 0.6rem 1.6rem;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #f4f4f4; /* Fondo claro para el modo claro */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 70px;
+    left: 245px;
+    width: 350px;
+    z-index: 111;
+    transition: background-color 0.3s ease;
+}
+
+/* Modo Claro */
+body.light #searchResults {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+/* Modo Oscuro */
+body.dark #searchResults {
+    background-color: #333;
+    border: 1px solid #555;
+}
+
+#searchResults li {
+    margin-bottom: 1rem;
+}
+
+#searchResults a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.8rem;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#searchResults a:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: #4a3c8c;
+    transform: scale(1.05);
+}
+
+#searchResults a:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(94, 77, 154, 0.6);
+}
+
+
+
+
+/*Header*/
+header {
+    background-color: var(--color-background-hf);
+    color: var(--color-texto-hf);
+    margin: 0;
+    padding: 10rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerTexto {
+    padding: 8rem 6rem 16rem;
+    font-size: 4.6rem;
+    display: flex;
+    flex-direction: column;  /* Hacer que los elementos se apilen */
+    gap: 3rem;  /* Espacio proporcional entre h1 y h2 */
+}
+
+.headerTexto h2 { 
+    font-size: 4rem;
+}
+
+header img {
+    width: 19.6rem;
+    height: 18.6rem;
+    margin: -6rem 10rem 0 5rem; /* Mueve la imagen hacia arriba con margen negativo */
+}
+
+
+/*Home*/
+#home {
+    padding: 6rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#home .texthome {
+    width: 66%;
+    line-height: 1.8;
+}
+
+#home h2 {
+    margin-bottom: 2.6rem;
+    font-size: 4rem;
+}
+
+#home img {
+    width: 26rem;
+    height: auto;
+}
+
+/*About Me*/
+#about-me {
+    padding: 6rem;
+    width: 90%;
+    font-size: 1.5rem;
+    line-height: 1.8; /* Aumenta la separación entre las líneas de texto */
+    justify-content: space-between;
+    align-items: center;
+}
+#about-me h2 {
+    margin-bottom: 2.6rem;
+    font-size: 4rem;
+}
+#about-me p{
+    margin-top: 2rem;
+}
+
+#about-me img {
+    width: 26rem;
+    height: auto;
+}
+
+/*Proyectos*/
+#projects {
+    padding: 6rem;
+    width: 90%;
+    font-size: 1.5rem;
+    line-height: 1.8; /* Aumenta la separación entre las líneas de texto */
+    justify-content: space-between;
+    align-items: center;
+}
+#projects h2 {
+    margin-bottom: 2.6rem;
+    font-size: 4rem;
+}
+#projects p{
+    margin-top: 2rem;
+}
+
+#projects img {
+    width: 26rem;
+    height: auto;
+}
+
+/*Contact*/
+#contact {
+    padding: 6rem;
+    width: 90%;
+    font-size: 1.5rem;
+    line-height: 1.8; /* Aumenta la separación entre las líneas de texto */
+    justify-content: space-between;
+    align-items: center;
+}
+#contact h2 {
+    margin-bottom: 2.6rem;
+    font-size: 4rem;
+}
+#contact p{
+    margin-top: 2rem;
+}
+
+#contact img {
+    width: 26rem;
+    height: auto;
+}
+
+
+/*Footer*/
+footer {
+    background-color: var(--color-background-hf);
+    color: var(--color-texto-hf);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-social, .footer-contact {
+    flex: 1;
+    margin: 20px;
+}
+
+.footer-contact p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-social .social-links {
+    color: var(--color-texto-hf);
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-social .social-links li {
+    margin: 0 10px;
+}
+
+.footer-social .social-links a {
+    color: var(--color-text);
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.footer-social .social-links a:hover {
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
 }
