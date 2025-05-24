@@ -1,0 +1,145 @@
+:root{
+    --color-navbackground:#0a0a0a;
+    --color-background:#0f0f0f;
+    --color-text:#ececec;
+    --color-text-hover:#aa82fa;
+    --color-primary:#412575;
+}
+
+*{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+/*General*/
+
+body{
+    scroll-behavior: smooth;
+    background-color: var(--color-background);
+    color:var(--color-text);
+    font-size: 1.2rem;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+ul {
+    list-style-type: none;
+}
+
+/*Navegcion*/
+.navbar {
+    display: flex;
+    text-align: center;
+    justify-content:space-between;
+    aspect-ratio: 16/1;
+    font-size: 1.46rem;
+    background-color: var(--color-navbackground);
+    box-shadow: 0px 6px 16px ;
+    margin-bottom: 3.3%;
+    top: 0;
+    position: sticky;
+    z-index: 1000;
+}
+.navname, a{
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    gap: 3rem;
+    transition: all 0.6s;
+}
+.navname h2{
+    transition: all 0.3s;
+}
+.navname h2:hover{
+    color: var(--color-text-hover);
+    scale: 1.01;
+}
+.navmenu{
+    display: flex;
+    align-items: center;
+    padding-right: 6rem;
+}
+.navmenu ul{
+    display: flex;
+    margin: 0;
+    gap: 6rem;
+    transition: all 0.6s ease;
+}
+.navmenu ul a{
+    transition: all 0.6s ease;
+
+}
+.navmenu ul a:hover{
+    color: var(--color-text-hover);
+}
+
+/*Header*/
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-navbackground);
+    padding: 16.6% 6%;
+}
+
+#home h1{
+    font-size: 266%;
+    margin-bottom: 6.6%;
+}
+#home h3{
+    font-size: 166%;
+}
+
+/*About Me*/
+#about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-background);
+    padding: 6%;
+}
+#about h2{
+    font-size: 233%;
+    margin-bottom: 3.3%;
+}
+
+.aboutme {
+    max-width: 56%;
+    line-height: 192%;
+}
+.skills{
+    margin-right: 23%;
+}
+
+/*My Proyects*/
+#proyects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background);
+    padding: 6%;
+}
+
+
+/*Contact*/
+#contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-background);
+    padding: 6%;
+}
+
+
+
+
+/*Footer*/
+footer {
+    background-color: var(--color-navbackground);
+}
