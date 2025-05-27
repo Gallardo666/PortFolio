@@ -40,8 +40,7 @@ ul {
     aspect-ratio: 16/1;
     font-size: 1.46rem;
     background-color: var(--color-navbackground);
-    box-shadow: 0px 6px 16px ;
-    padding-bottom: 3.33%;
+    box-shadow: 0 2px 10px rgb(65, 37, 117);
     top: 0;
     position: sticky;
     z-index: 1000;
@@ -119,27 +118,189 @@ header{
 
 /*My Proyects*/
 #proyects{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: var(--color-background);
     padding: 6%;
 }
 
-
-/*Contact*/
-#contact{
+.tarjetas{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+.tarjetaproyecto{
+    flex:1 1 calc(33.333% - 5%);
+    margin-top: 6%;
+
+}
+
+
+
+#contact {
     background-color: var(--color-background);
     padding: 6%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#contact h2 {
+    color: var(--color-text);
+    margin-bottom: 4rem;
+    font-size: 2.2rem;
+}
+/* FORMULARIO */
+#contact form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem 5rem 3rem 3rem;
+    background-color: #1a1a1a;
+    border-radius: 12px; /* Esquinas redondeadas pero no ovaladas */
+    box-shadow: 0 0 40px rgba(65, 37, 117, 0.6);
+    font-size: 1.2rem;
+    color: var(--color-text);
+    overflow: hidden;
+    z-index: 0;
+    transition: box-shadow 0.6s ease;
+}
+
+#contact form:hover {
+    box-shadow: 0 0 40px rgba(170, 130, 250, 0.7);
+}
+
+/* Animación interior */
+#contact form::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(170, 130, 250, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(65, 37, 117, 0.08) 0%, transparent 60%);
+    animation: floatLights 10s ease-in-out infinite;
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 0;
+}
+
+@keyframes floatLights {
+    0%, 100% {
+        background-position:
+            20% 30%,
+            80% 70%;
+    }
+    50% {
+        background-position:
+            25% 35%,
+            75% 65%;
+    }
+}
+
+/* Contenido sobre la animación */
+#contact form > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Inputs y textarea */
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #2b2b2b;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    resize: none;
+    transition: background-color 0.3s, outline 0.3s;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    background-color: #3a3a3a;
+    outline: 2px solid var(--color-primary);
+}
+
+/* Botón */
+#contact button {
+    width: 50%;
+    padding: 1rem;
+    margin: 0 auto;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contact button:hover {
+    background-color: var(--color-text-hover);
 }
 
 
 
 
-/*Footer*/
 footer {
     background-color: var(--color-navbackground);
+    color: var(--color-text);
+    text-align: center;
+    padding: 3% 0;
+    font-size: 90%;
+    box-shadow: 0 -2px 10px rgb(65, 37, 117);
+}
+
+footer p {
+    margin-left: 1.5%;
+    margin-bottom: 0.5rem;
+}
+.firma-artistica {
+  margin: 0.5rem 0 1.5rem;
+  font-style: italic;
+  color: var(--color-text-hover);
+  font-size: 0.9em;
+}
+
+
+footer a {
+    color: var(--color-text-hover);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--color-primary);
+}
+
+.footer-social {
+    margin-right: 2%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-social a {
+    color: var(--color-text);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--color-text-hover);
+}
+
+.footer-social svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+    vertical-align: middle;
 }
