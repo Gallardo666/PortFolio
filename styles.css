@@ -6,6 +6,26 @@
     --color-primary:#412575;
 }
 
+@font-face {
+  font-family: 'Kenyan';
+  src: url('Tipografias/Kenyan/KenyanCoffee-Regular.woff') format('woff');
+  src: url('Tipografias/Kenyan/KenyanCoffee-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+
+  font-family: 'Unageo';
+  src: url('Tipografias/Unageo/Unageo-Regular.woff') format('woff');
+  src: url('Tipografias/Unageo/Unageo-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  
+}
+
+
+
 *{
     scroll-behavior: smooth;
     margin: 0;
@@ -21,6 +41,8 @@ body{
     font-size: 1.2rem;
     max-width: 100%;
     overflow-x: hidden;
+    font-family: 'Unageo' , sans-serif;
+
 }
 
 a {
@@ -84,15 +106,21 @@ header{
     align-items: center;
     justify-content: space-between;
     background-color: var(--color-navbackground);
-    padding: 16.6% 6%;
+    padding: 10.6% 6%;
 }
 
 #home h1{
-    font-size: 266%;
+    font-family: 'Quantum', sans-serif;
+    font-size: 200%;
     margin-bottom: 6.6%;
 }
 #home h3{
-    font-size: 166%;
+    font-size: 130%;
+}
+header img{
+    width: 37%;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
 /*About Me*/
