@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="navname">
             <a href="#home">
-                <img src="Images/Logos/" alt="Jordi Gallardo" title="Jordi Gallardo">
+                <img src="Images/Logos/Logo G KaiGlyph.png" alt="Jordi Gallardo" title="Jordi Gallardo">
                 <h2>Jordi Gallardo</h2>
             </a>
         </div>
@@ -21,6 +21,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Sobre Mi</a></li>
                 <li><a href="#proyects">Proyectos</a></li>
+                <li><a href="#teamwork">Valoraciones</a></li>
                 <li><a href="#contact">Contactame</a></li>
             </ul>
         </div>
@@ -43,69 +44,123 @@
                 <p>Trabajo mejor en solitario, pero me se adptar a cualquier entorno aportandome al rol que falte.</p>
             </div>
             <div class="skills">
-                <p>Html</p>
-                <p>Css</p>
-                <p>JavaScript</p>
-                <p>Python</p>
-                <p>PHP</p>
-                <p>GitHub</p>
-                <p>MySQL</p>
+                <div class="skills-grid">
+                    <div class="skill high" onclick="openModal('html')">HTML</div>
+                    <div class="skill high" onclick="openModal('css')">CSS</div>
+                    <div class="skill high" onclick="openModal('jira')">Jira</div>
+                    <div class="skill medium" onclick="openModal('js')">JavaScript</div>
+                    <div class="skill medium" onclick="openModal('python')">Python</div>
+                    <div class="skill medium" onclick="openModal('github')">GitHub</div>
+                    <div class="skill low" onclick="openModal('php')">PHP</div>
+                    <div class="skill low" onclick="openModal('mysql')">MySQL</div>
+                </div>
             </div>
+
+            <!-- Modales -->
+            <div id="modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-body"></p>
+                </div>
+            </div>
+
         </section>
 
-        <section id="proyects" class="">
-            <h2>Mis Proyectos</h2>
-            <div class="tarjetas">
-                <a href="Pages/proyect_kiyomi.html">
-                    <div class="tarjetaproyecto">
-                        <img src="" alt="">
-                        <h3>Kiyomi</h3>
-                        <p>Rediseño de una pagina web de un restaurante japones.</p>
-                    </div>
-                </a>
+<section id="proyects">
+    <h2>Mis Proyectos</h2>
+    <div class="tarjetas">
 
-                <a href="Pages/">
-                    <div class="tarjetaproyecto">
-                        <img src="" alt="">
-                        <h3>FairyPaws</h3>
-                        <p>Pagina creada para conectar un formulario con una base de datos.</p>
-                    </div>
-                </a>
-
-                <a href="Pages/">
-                    <div class="tarjetaproyecto">
-                        <img src="" alt="">
-                        <h3>PandEx</h3>
-                        <p>Pagina creada para un examen de html.</p>
-                    </div>
-                </a>
-
-                <a href="Pages/">
-                    <div class="tarjetaproyecto">
-                        <img src="" alt="">
-                        <h3>Avicii</h3>
-                        <p>Dedicada a cierto dj, productor y compositor.</p>
-                    </div>
-                </a>
-
-                <a href="Pages/">
-                    <div class="tarjetaproyecto">
-                        <img src="" alt="">
-                        <h3>YoruNeko</h3>
-                        <p>Creando restaurante japones ficticio.</p>
-                    </div>
-                </a>
-                
-                <a href="Pages/">
-                    <div class="tarjetaproyecto">
-                        <img src="" alt="">
-                        <h3>YoruNeko</h3>
-                        <p>Creando restaurante japones ficticio.</p>
-                    </div>
-                </a>
+        <a href="Pages/" class="tarjetaproyecto">
+            <img src="Images/Proyectos/" alt="Proyecto ERP Mantenimiento" title="ERP Mantenimiento">
+            <div class="texto-proyecto">
+                <h3>ERP Mantenimiento</h3>
+                <p>Aplicación creada como proyecto final de formación para demostrar de lo que somos capazes yo y el equipo con el que lo he hecho.</p>
             </div>
-        </section>
+        </a>
+
+        <a href="Pages/proyecto_kyan.html" class="tarjetaproyecto">
+            <img src="Images/Proyectos/KyanCosplayWeb.png" alt="Proyecto KyanCosplay" title="KyanCosplay">
+            <div class="texto-proyecto">
+                <h3>KyanCosplay</h3>
+                <p>Creada a partir de crear una empresa en la formación de Marketing, creando la tienda online ademas de captar mas clientes.</p>
+            </div>
+        </a>
+
+        <a href="Pages/" class="tarjetaproyecto">
+            <img src="Images/Proyectos/" alt="Proyecto Alta Empleados" title="Alta Empleados">
+            <div class="texto-proyecto">
+                <h3>Alta Empleados</h3>
+                <p>Utilización de Power Automate para crear en grupo un proyecto simulando una gestión para administrar el reparto de portatiles.</p>
+            </div>
+        </a>
+
+        <a href="Pages/" class="tarjetaproyecto">
+            <img src="Images/Proyectos" alt="Proyecto" title="">
+            <div class="texto-proyecto">
+                <h3>FairyPaws</h3>
+                <p>Pagina web creada para examen de formularios de la formación. En dicho examen se ha creado un formulario que se enlaza con una base de datos de MySQL.</p>
+            </div>
+        </a>
+        <a href="Pages/" class="tarjetaproyecto">
+            <img src="Images/Proyectos" alt="Proyecto" title="">
+            <div class="texto-proyecto">
+                <h3>Gestor</h3>
+                <p>Creado para solucionar problemas de encontrar una pagina que transforme distintos formatos ya sean de imagenes, pdf,...</p>
+            </div>
+        </a>
+        <a href="Pages/proyecto_kiyomi.html" class="tarjetaproyecto">
+            <img src="Images/Proyectos" alt="Proyecto" title="">
+            <div class="texto-proyecto">
+                <h3>Kiyomi</h3>
+                <p>Rediseño de una página web de un restaurante japonés ya que la original que tiene dicho restaurante me parecia demasiado simple.</p>
+            </div>
+        </a>
+        <a href="Pages/" class="tarjetaproyecto">
+            <img src="Images/Proyectos" alt="Proyecto" title="">
+            <div class="texto-proyecto">
+                <h3>YoruNeko</h3>
+                <p>Creación de una pagina web de un restaurante Japones ficticio</p>
+            </div>
+        </a>
         
+    </div>
+</section>
+
+
+        
+        <section id="teamwork" class="valoraciones">
+          <h2>Valoraciones</h2>
+          <div class="carousel-container">
+            <button class="carousel-btn left" onclick="scrollCarousel(-1)">❮</button>
+
+            <div class="carousel-track" id="carouselTrack">
+                <div class="testimonio">
+                    <p>"Jordi siempre encuentra una solución lógica incluso en situaciones caóticas."</p>
+                    <h4>Ariadna L. | ERP Mantenimiento</h4>
+                </div>
+                <div class="testimonio">
+                    <p>"Muy centrado, responsable y con pensamiento crítico que aporta valor."</p>
+                    <h4>Paula A. | KyanCosplay</h4>
+                </div>
+                <div class="testimonio">
+                    <p>"Jordi siempre encuentra una solución lógica incluso en situaciones caóticas."</p>
+                    <h4>Mohamed F. | Alta Empleados</h4>
+                </div>
+                <div class="testimonio">
+                    <p>"Sabe cuándo liderar y cuándo apoyar. Se adapta a todo tipo de equipos."</p> <!--Añadir comentario-->
+                    <h4>Albert E. | KyanCosplay - Alta Empleados</h4>
+                </div>
+                <div class="testimonio">
+                    <p>"Jordi siempre encuentra una solución lógica incluso en situaciones caóticas."</p>
+                    <h4>Alhida L. | ERP Mantenimiento</h4>
+                </div>
+            </div>
+
+            <button class="carousel-btn right" onclick="scrollCarousel(1)">❯</button>
+          </div>
+        </section>
+
         <section id="contact" class="">
             <h2>Contactame</h2>
             <form action="https://formsubmit.co/jordigallardo0621@gmail.com" method="post">
